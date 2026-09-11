@@ -118,10 +118,10 @@ Clone the repository and run:
 ```bash
 mvn spring-boot:run
 ```
-The server will start at: `http://localhost:8080`
-- **Swagger UI**: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
-- **OpenAPI JSON**: [http://localhost:8080/v3/api-docs](http://localhost:8080/v3/api-docs)
-- **H2 Web Console**: [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
+The server will start at: `http://localhost:8081`
+- **Swagger UI**: [http://localhost:8081/swagger-ui.html](http://localhost:8081/swagger-ui.html)
+- **OpenAPI JSON**: [http://localhost:8081/v3/api-docs](http://localhost:8081/v3/api-docs)
+- **H2 Web Console**: [http://localhost:8081/h2-console](http://localhost:8081/h2-console)
   - JDBC URL: `jdbc:h2:mem:taskdb`
   - Username: `sa`
   - Password: *(leave blank)*
@@ -156,7 +156,7 @@ mvn clean package
 
 ### Create a Task
 ```bash
-curl -X POST http://localhost:8080/api/v1/tasks \
+curl -X POST http://localhost:8081/api/v1/tasks \
   -H "Content-Type: application/json" \
   -d '{
     "title": "Build Spring Boot Microservice",
@@ -170,17 +170,17 @@ curl -X POST http://localhost:8080/api/v1/tasks \
 
 ### Filter Tasks (Pagination + Status Filter)
 ```bash
-curl "http://localhost:8080/api/v1/tasks?status=IN_PROGRESS&page=0&size=5&sort=dueDate,asc"
+curl "http://localhost:8081/api/v1/tasks?status=IN_PROGRESS&page=0&size=5&sort=dueDate,asc"
 ```
 
 ### Update Task Status
 ```bash
-curl -X PATCH http://localhost:8080/api/v1/tasks/1/status \
+curl -X PATCH http://localhost:8081/api/v1/tasks/1/status \
   -H "Content-Type: application/json" \
   -d '{"status": "COMPLETED"}'
 ```
 
 ### Get Task Statistics
 ```bash
-curl http://localhost:8080/api/v1/tasks/stats
+curl http://localhost:8081/api/v1/tasks/stats
 ```
